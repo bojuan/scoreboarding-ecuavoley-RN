@@ -22,6 +22,7 @@ export default function App() {
           setFirstMarker(marker);
         }}
         markerLimit={markerLimit}
+        position="right"
       />
     </View>
   );
@@ -30,6 +31,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    gap: 4,
     backgroundColor: "#fff",
     justifyContent: "center",
     paddingHorizontal: 12

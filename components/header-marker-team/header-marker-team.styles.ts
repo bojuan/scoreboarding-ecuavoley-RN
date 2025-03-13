@@ -11,13 +11,23 @@ export const headerMarkerTeamStyles = StyleSheet.create({
   containerName: {
     maxWidth: 200,
     backgroundColor: ColorsApp.PRIMARY,
+    justifyContent: "center"
+  },
+  containerNameLeft: {
     borderTopRightRadius: 20,
     borderBottomRightRadius: 20,
     paddingLeft: 32,
     paddingRight: 12,
     paddingVertical: 8,
     transform: [{ translateX: -25 }],
-    justifyContent: "center"
+  },
+  containerNameRight: {
+    borderTopLeftRadius: 20,
+    borderBottomLeftRadius: 20,
+    paddingLeft: 12,
+    paddingRight: 32,
+    paddingVertical: 8,
+    transform: [{ translateX: 25 }],
   },
   text: {
     color: ColorsApp.WHITE,

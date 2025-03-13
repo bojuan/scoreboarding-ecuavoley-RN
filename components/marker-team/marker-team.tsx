@@ -5,17 +5,20 @@ import MarkerButton from "../marker-button/marker-button";
 import MarkerNumber from "../marker-number/marker-number";
 import { stylesMarkerTeam } from "./marker-team.styles";
 import HeaderMarkerTeam from "../header-marker-team/header-marker-team";
+import MatchIndicator from "../match-indicator/match-indicator";
 
 interface MarkerTeamProps {
   changeNumberTeam: (newNumberMarker: number) => void;
   numberMarker: number;
   markerLimit: number;
+  position?: "left" | "right";
 }
 
 const MarkerTeam: FC<MarkerTeamProps> = ({
   numberMarker,
   changeNumberTeam,
   markerLimit,
+  position = "left",
 }) => {
   const changeNumber = (typeButton: "up" | "down") => {
     const currentNumberMarket = numberMarker + (typeButton === "up" ? 1 : -1);
@@ -30,13 +33,26 @@ const MarkerTeam: FC<MarkerTeamProps> = ({
 
   return (
     <View style={stylesMarkerTeam.container}>
-      <View style={stylesMarkerTeam.containerHeader}>
-        <HeaderMarkerTeam nameTeam="Los pepitos" />
-      </View>
-      <View style={stylesMarkerTeam.containerMarker}>
-        <MarkerNumber numberMarker={numberMarker} />
-        <View style={stylesMarkerTeam.containerMarkerButton}>
-          <MarkerButton typeButton="plus" onPressButton={changeNumber("up")} />
+      <MatchIndicator periodsWon={["two"]} isThirdPeriod/>
+      <View style={stylesMarkerTeam.containerMarkerTeam}>
+        <View
+          style={[
+            stylesMarkerTeam.containerHeader,
+            {
+              alignItems: position === "right" ? "flex-end" : "flex-start",
+            },
+          ]}
+        >
+          <HeaderMarkerTeam nameTeam="Los pepitos" position={position} />
+        </View>
+        <View style={stylesMarkerTeam.containerMarker}>
+          <MarkerNumber numberMarker={numberMarker} />
+          <View style={stylesMarkerTeam.containerMarkerButton}>
+            <MarkerButton
+              typeButton="plus"
+              onPressButton={changeNumber("up")}
+            />
+          </View>
         </View>
       </View>
     </View>

@@ -3,8 +3,12 @@ import { ColorsApp } from "../../shared/constants/colors";
 
 export const stylesMarkerTeam = StyleSheet.create({
   container: {
+    flexDirection: "row",
+    gap: 8
+  },
+  containerMarkerTeam: {
     justifyContent: "center",
-
+    flex: 1
   },
   containerHeader: {
     zIndex: 1,

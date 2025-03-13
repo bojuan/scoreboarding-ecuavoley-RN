@@ -5,12 +5,12 @@ import AntDesign from "@expo/vector-icons/AntDesign";
 import { stylesMarkerButton } from "./marker-button.styles";
 import { ColorsApp } from "../../shared/constants/colors";
 
-interface MarkerButton {
+interface MarkerButtonProps {
   onPressButton?: () => void;
-  typeButton?: "up" | "down";
+  typeButton?: "up" | "down" | "plus";
 }
 
-const MarkerButton: FC<MarkerButton> = ({
+const MarkerButton: FC<MarkerButtonProps> = ({
   onPressButton,
   typeButton = "up",
 }) => {
@@ -21,15 +21,16 @@ const MarkerButton: FC<MarkerButton> = ({
     },
   ];
 
+  const getNameIcon = () => {
+    if (typeButton === "up") return "caretup";
+    if (typeButton === "down") return "caretdown";
+
+    return "plus";
+  };
+
   return (
     <Pressable style={styleContainer} onPress={onPressButton}>
-      {
-        <AntDesign
-          name={typeButton === "up" ? "caretup" : "caretdown"}
-          size={24}
-          color={ColorsApp.PRIMARY}
-        />
-      }
+      {<AntDesign name={getNameIcon()} size={32} color={ColorsApp.PRIMARY} />}
     </Pressable>
   );
 };

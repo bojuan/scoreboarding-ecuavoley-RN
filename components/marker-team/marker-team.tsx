@@ -6,12 +6,14 @@ import MarkerNumber from "../marker-number/marker-number";
 import { stylesMarkerTeam } from "./marker-team.styles";
 import HeaderMarkerTeam from "../header-marker-team/header-marker-team";
 import MatchIndicator from "../match-indicator/match-indicator";
+import { ColorsApp } from "../../shared/constants/colors";
 
 interface MarkerTeamProps {
   changeNumberTeam: (newNumberMarker: number) => void;
   numberMarker: number;
   markerLimit: number;
   position?: "left" | "right";
+  isActive?: boolean;
 }
 
 const MarkerTeam: FC<MarkerTeamProps> = ({
@@ -19,21 +21,15 @@ const MarkerTeam: FC<MarkerTeamProps> = ({
   changeNumberTeam,
   markerLimit,
   position = "left",
+  isActive,
 }) => {
-  const changeNumber = (typeButton: "up" | "down") => {
-    const currentNumberMarket = numberMarker + (typeButton === "up" ? 1 : -1);
-    return () => {
-      if (currentNumberMarket < 0 || currentNumberMarket > markerLimit) {
-        alert("No se puede revasar los limites.");
-        return;
-      }
-      changeNumberTeam(currentNumberMarket);
-    };
+  const changeNumber = () => {
+    changeNumberTeam(numberMarker + 1);
   };
 
   return (
     <View style={stylesMarkerTeam.container}>
-      <MatchIndicator periodsWon={["two"]} isThirdPeriod/>
+      <MatchIndicator periodsWon={["two"]} isThirdPeriod />
       <View style={stylesMarkerTeam.containerMarkerTeam}>
         <View
           style={[
@@ -43,14 +39,34 @@ const MarkerTeam: FC<MarkerTeamProps> = ({
             },
           ]}
         >
-          <HeaderMarkerTeam nameTeam="Los pepitos" position={position} />
+          <HeaderMarkerTeam
+            nameTeam="Los pepitos"
+            position={position}
+            type={isActive ? "primary" : "secondary"}
+          />
         </View>
-        <View style={stylesMarkerTeam.containerMarker}>
-          <MarkerNumber numberMarker={numberMarker} />
+        <View
+          style={[
+            stylesMarkerTeam.containerMarker,
+            {
+              backgroundColor: isActive
+                ? ColorsApp.BACKGROUND
+                : ColorsApp.GRAY_ONE,
+            },
+          ]}
+        >
+          <View style={stylesMarkerTeam.markerNumber}>
+            <MarkerNumber
+              numberMarker={numberMarker}
+              color={isActive ? ColorsApp.PRIMARY : ColorsApp.GRAY_FIVE}
+            />
+          </View>
           <View style={stylesMarkerTeam.containerMarkerButton}>
             <MarkerButton
               typeButton="plus"
-              onPressButton={changeNumber("up")}
+              onPressButton={changeNumber}
+              disabled={!isActive}
+              borderWidth={isActive ? 4 : 0}
             />
           </View>
         </View>

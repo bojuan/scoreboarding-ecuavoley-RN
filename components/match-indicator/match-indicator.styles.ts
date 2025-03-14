@@ -8,8 +8,7 @@ export const matchIndicatorStyles = StyleSheet.create({
     paddingVertical: 4,
     paddingHorizontal: 8,
     justifyContent: "center",
-    backgroundColor: ColorsApp.WARNING,
-    borderRadius: 12
+    borderRadius: 12,
   },
   indicator: {
     width: 32,
@@ -17,9 +16,10 @@ export const matchIndicatorStyles = StyleSheet.create({
     backgroundColor: ColorsApp.WHITE,
     borderRadius: 50,
     borderWidth: 4,
-    borderColor: ColorsApp.TERTIARY
+    borderColor: ColorsApp.GRAY_TWO
   },
   indicatorSelected: {
     backgroundColor: ColorsApp.TERTIARY,
+    borderColor: ColorsApp.BACKGROUND
   },
 });

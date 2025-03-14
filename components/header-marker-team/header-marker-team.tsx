@@ -6,11 +6,13 @@ import Avatar from "../avatar/avatar";
 interface HeaderMarkerTeamProps {
   nameTeam: string;
   position?: "right" | "left";
+  type?: "primary" | "secondary";
 }
 
 const HeaderMarkerTeam: FC<HeaderMarkerTeamProps> = ({
   nameTeam,
   position = "left",
+  type = "primary",
 }) => {
   return (
     <View style={headerMarkerTeamStyles.container}>
@@ -23,12 +25,24 @@ const HeaderMarkerTeam: FC<HeaderMarkerTeamProps> = ({
       <View
         style={[
           headerMarkerTeamStyles.containerName,
+          type === "secondary"
+            ? headerMarkerTeamStyles.containerSecondary
+            : undefined,
           position === "left"
             ? headerMarkerTeamStyles.containerNameLeft
             : headerMarkerTeamStyles.containerNameRight,
         ]}
       >
-        <Text style={headerMarkerTeamStyles.text}>{nameTeam}</Text>
+        <Text
+          style={[
+            headerMarkerTeamStyles.text,
+            type === "secondary"
+              ? headerMarkerTeamStyles.textSecondary
+              : undefined,
+          ]}
+        >
+          {nameTeam}
+        </Text>
       </View>
 
       {position === "right" && (

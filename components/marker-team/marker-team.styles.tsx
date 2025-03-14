@@ -26,4 +26,7 @@ export const stylesMarkerTeam = StyleSheet.create({
     backgroundColor: ColorsApp.BACKGROUND,
     paddingTop: 24
   },
+  markerNumber: {
+    flex: 1
+  },
 });

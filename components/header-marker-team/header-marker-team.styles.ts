@@ -10,7 +10,9 @@ export const headerMarkerTeamStyles = StyleSheet.create({
   },
   containerName: {
     maxWidth: 200,
-    backgroundColor: ColorsApp.PRIMARY,
+    backgroundColor: ColorsApp.WHITE,
+    borderWidth: 4,
+    borderColor: ColorsApp.PRIMARY,
     justifyContent: "center"
   },
   containerNameLeft: {
@@ -29,9 +31,17 @@ export const headerMarkerTeamStyles = StyleSheet.create({
     paddingVertical: 8,
     transform: [{ translateX: 25 }],
   },
+  containerSecondary: {
+    borderColor: ColorsApp.GRAY_TWO,
+    backgroundColor: ColorsApp.WHITE
+  },
   text: {
-    color: ColorsApp.WHITE,
+    color: ColorsApp.PRIMARY,
     fontSize: 16,
+    fontWeight: 400,
     textAlignVertical: "center"
+  },
+  textSecondary: {
+    color: ColorsApp.GRAY_FIVE,
   },
 });

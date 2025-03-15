@@ -9,6 +9,7 @@ import MatchIndicator from "../match-indicator/match-indicator";
 import { ColorsApp } from "../../shared/constants/colors";
 
 interface MarkerTeamProps {
+  nameTeam: string;
   changeNumberTeam: (newNumberMarker: number) => void;
   numberMarker: number;
   markerLimit: number;
@@ -17,6 +18,7 @@ interface MarkerTeamProps {
 }
 
 const MarkerTeam: FC<MarkerTeamProps> = ({
+  nameTeam,
   numberMarker,
   changeNumberTeam,
   markerLimit,
@@ -40,7 +42,7 @@ const MarkerTeam: FC<MarkerTeamProps> = ({
           ]}
         >
           <HeaderMarkerTeam
-            nameTeam="Los pepitos"
+            nameTeam={nameTeam}
             position={position}
             type={isActive ? "primary" : "secondary"}
           />

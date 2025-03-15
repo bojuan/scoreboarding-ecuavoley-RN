@@ -6,6 +6,8 @@ import MarkerTeam from "./components/marker-team/marker-team";
 import { useState } from "react";
 import MarkerButton from "./components/marker-button/marker-button";
 import { ColorsApp } from "./shared/constants/colors";
+import MarkerTimer from "./components/marker-timer/marker-timer";
+import ScoreboardHeader from "./components/scoreboard-header/scoreboard-header";
 
 type TeamType = "left" | "right";
 
@@ -22,7 +24,9 @@ export default function App() {
   return (
     <SafeAreaView style={{ backgroundColor: "red", flex: 1 }}>
       <View style={styles.container}>
+        <ScoreboardHeader />
         <MarkerTeam
+          nameTeam="Equipo Uno"
           numberMarker={numberLeftMarker}
           changeNumberTeam={(marker) => {
             setLeftMarker(marker);
@@ -31,6 +35,7 @@ export default function App() {
           isActive={teamActive === "left"}
         />
         <MarkerTeam
+          nameTeam="Equipo Dos"
           numberMarker={numberRightMarker}
           changeNumberTeam={(marker) => {
             setRightMarker(marker);
@@ -39,7 +44,7 @@ export default function App() {
           position="right"
           isActive={teamActive === "right"}
         />
-        
+
         <View
           style={{
             flexDirection: "row",
@@ -47,11 +52,7 @@ export default function App() {
             alignItems: "flex-end",
           }}
         >
-          <MarkerButton
-            typeButton="change"
-            sizeButton={54}
-            sizeIcon={20}
-          />
+          <MarkerButton typeButton="change" sizeButton={54} sizeIcon={20} />
           <MarkerButton
             typeButton="change"
             backgroundColorButton={ColorsApp.PRIMARY}
@@ -60,11 +61,7 @@ export default function App() {
             sizeIcon={36}
             onPressButton={onChangeTeam}
           />
-          <MarkerButton
-            typeButton="change"
-            sizeButton={54}
-            sizeIcon={20}
-          />
+          <MarkerButton typeButton="change" sizeButton={54} sizeIcon={20} />
         </View>
       </View>
     </SafeAreaView>
@@ -77,7 +74,7 @@ const styles = StyleSheet.create({
     gap: 4,
     backgroundColor: "#fff",
     justifyContent: "center",
-    paddingHorizontal: 12,
-    paddingVertical: 12
+    //paddingHorizontal: 12,
+    //paddingVertical: 12,
   },
 });

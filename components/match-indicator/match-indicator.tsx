@@ -1,19 +1,16 @@
 import { FC } from "react";
 import { StyleProp, View, ViewStyle } from "react-native";
 import { matchIndicatorStyles } from "./match-indicator.styles";
-
-type periods = "one" | "two" | "three";
-
 interface MatchIndicatorProps {
   isThirdPeriod?: boolean;
-  periodsWon: periods[];
+  periodsWon: PeriodsType[];
 }
 
 const MatchIndicator: FC<MatchIndicatorProps> = ({
   isThirdPeriod,
   periodsWon,
 }) => {
-  const getIndicator = (currentPeriod: periods) => {
+  const getIndicator = (currentPeriod: PeriodsType) => {
     let style: StyleProp<ViewStyle> = [matchIndicatorStyles.indicator];
     if (periodsWon.includes(currentPeriod)) {
       style = [...style, matchIndicatorStyles.indicatorSelected];

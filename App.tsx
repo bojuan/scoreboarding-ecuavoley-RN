@@ -22,37 +22,45 @@ export default function App() {
   };
 
   return (
-    <SafeAreaView style={{ backgroundColor: "red", flex: 1 }}>
+    <SafeAreaView style={{ flex: 1 }}>
       <View style={styles.container}>
         <ScoreboardHeader />
-        <MarkerTeam
-          nameTeam="Equipo Uno"
-          numberMarker={numberLeftMarker}
-          changeNumberTeam={(marker) => {
-            setLeftMarker(marker);
-          }}
-          markerLimit={markerLimit}
-          isActive={teamActive === "left"}
-        />
-        <MarkerTeam
-          nameTeam="Equipo Dos"
-          numberMarker={numberRightMarker}
-          changeNumberTeam={(marker) => {
-            setRightMarker(marker);
-          }}
-          markerLimit={markerLimit}
-          position="right"
-          isActive={teamActive === "right"}
-        />
+        <View style={{
+          height: 80,
+          backgroundColor: ColorsApp.BACKGROUND,
+          marginVertical: 20
+        }} />
+        <View style={styles.containerScoreboards}>
+          <MarkerTeam
+            nameTeam="Equipo Uno"
+            periodsWon={[]}
+            numberMarker={numberLeftMarker}
+            changeNumberTeam={(marker) => {
+              setLeftMarker(marker);
+            }}
+            markerLimit={markerLimit}
+            isActive={teamActive === "left"}
+          />
+          <MarkerTeam
+            nameTeam="Equipo Dos"
+            periodsWon={[]}
+            numberMarker={numberRightMarker}
+            changeNumberTeam={(marker) => {
+              setRightMarker(marker);
+            }}
+            markerLimit={markerLimit}
+            position="right"
+            isActive={teamActive === "right"}
+          />
+        </View>
 
         <View
           style={{
-            flexDirection: "row",
-            justifyContent: "space-around",
-            alignItems: "flex-end",
+            justifyContent: "center",
+            alignItems: "center",
+            flex: 1,
           }}
         >
-          <MarkerButton typeButton="change" sizeButton={54} sizeIcon={20} />
           <MarkerButton
             typeButton="change"
             backgroundColorButton={ColorsApp.PRIMARY}
@@ -61,7 +69,6 @@ export default function App() {
             sizeIcon={36}
             onPressButton={onChangeTeam}
           />
-          <MarkerButton typeButton="change" sizeButton={54} sizeIcon={20} />
         </View>
       </View>
     </SafeAreaView>
@@ -72,9 +79,13 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     gap: 4,
-    backgroundColor: "#fff",
-    justifyContent: "center",
-    //paddingHorizontal: 12,
-    //paddingVertical: 12,
+    backgroundColor: ColorsApp.WHITE,
+    justifyContent: "space-between",
+  },
+  containerScoreboards: {
+    padding: 12,
+    borderRadius: 15,
+    backgroundColor: "rgb(243, 249, 255)",
+    margin: 8,
   },
 });

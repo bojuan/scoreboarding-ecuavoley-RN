@@ -18,7 +18,10 @@ const HeaderMarkerTeam: FC<HeaderMarkerTeamProps> = ({
     <View style={headerMarkerTeamStyles.container}>
       {position === "left" && (
         <View style={headerMarkerTeamStyles.avatar}>
-          <Avatar name={nameTeam} />
+          <Avatar
+            name={nameTeam}
+            type={type === "secondary" ? "no-selected" : undefined}
+          />
         </View>
       )}
 
@@ -47,7 +50,10 @@ const HeaderMarkerTeam: FC<HeaderMarkerTeamProps> = ({
 
       {position === "right" && (
         <View style={headerMarkerTeamStyles.avatar}>
-          <Avatar name={nameTeam} />
+          <Avatar
+            name={nameTeam}
+            type={type === "secondary" ? "no-selected" : undefined}
+          />
         </View>
       )}
     </View>

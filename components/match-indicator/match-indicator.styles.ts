@@ -16,7 +16,7 @@ export const matchIndicatorStyles = StyleSheet.create({
     backgroundColor: ColorsApp.WHITE,
     borderRadius: 50,
     borderWidth: 4,
-    borderColor: ColorsApp.GRAY_TWO
+    borderColor: ColorsApp.BACKGROUND
   },
   indicatorSelected: {
     backgroundColor: ColorsApp.TERTIARY,

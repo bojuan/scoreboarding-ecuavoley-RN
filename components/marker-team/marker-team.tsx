@@ -13,6 +13,7 @@ interface MarkerTeamProps {
   changeNumberTeam: (newNumberMarker: number) => void;
   numberMarker: number;
   markerLimit: number;
+  periodsWon: PeriodsType[];
   position?: "left" | "right";
   isActive?: boolean;
 }
@@ -22,6 +23,7 @@ const MarkerTeam: FC<MarkerTeamProps> = ({
   numberMarker,
   changeNumberTeam,
   markerLimit,
+  periodsWon,
   position = "left",
   isActive,
 }) => {
@@ -29,9 +31,22 @@ const MarkerTeam: FC<MarkerTeamProps> = ({
     changeNumberTeam(numberMarker + 1);
   };
 
+  const getContainerStyle = () => {
+    let style = {}
+
+    if(isActive) {
+      style ={
+        borderWidth: 4,
+        borderColor: ColorsApp.PRIMARY
+      }
+    }
+
+    return style
+  }
+
   return (
     <View style={stylesMarkerTeam.container}>
-      <MatchIndicator periodsWon={["two"]} isThirdPeriod />
+      <MatchIndicator periodsWon={periodsWon} />
       <View style={stylesMarkerTeam.containerMarkerTeam}>
         <View
           style={[
@@ -50,11 +65,12 @@ const MarkerTeam: FC<MarkerTeamProps> = ({
         <View
           style={[
             stylesMarkerTeam.containerMarker,
-            {
+            getContainerStyle()
+            /* {
               backgroundColor: isActive
                 ? ColorsApp.BACKGROUND
-                : ColorsApp.GRAY_ONE,
-            },
+                : ColorsApp.WHITE,
+            }, */
           ]}
         >
           <View style={stylesMarkerTeam.markerNumber}>

@@ -5,21 +5,21 @@ import { scoreboardHeaderStyles } from "./scoreboard-header.styles";
 const ScoreboardHeader = () => {
   return (
     <View style={scoreboardHeaderStyles.container}>
-      <View>
-        <Text>Periodo</Text>
+      <View style={scoreboardHeaderStyles.containerInfo}>
+        <Text style={scoreboardHeaderStyles.labelInfo}>Periodo</Text>
         <Pressable>
-          <Text>Primer</Text>
+          <Text style={scoreboardHeaderStyles.textInfo}>Primer</Text>
         </Pressable>
       </View>
       <MarkerTimer />
-      <View>
-        <Text>Hasta</Text>
+      <View style={scoreboardHeaderStyles.containerInfo}>
+        <Text style={scoreboardHeaderStyles.labelInfo}>Hasta</Text>
         <Pressable>
-          <Text>12</Text>
+          <Text style={scoreboardHeaderStyles.textInfo}>12</Text>
         </Pressable>
       </View>
     </View>
   );
-}
+};
 
 export default ScoreboardHeader;

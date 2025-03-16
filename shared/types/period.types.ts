@@ -1,0 +1,1 @@
+type PeriodsType = "one" | "two" | "three";

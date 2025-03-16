@@ -6,19 +6,19 @@ export const markerTimerStyles = StyleSheet.create({
     alignItems: "center",
     borderBottomLeftRadius: 40,
     borderBottomRightRadius: 40,
-    backgroundColor: ColorsApp.TERTIARY,
+    backgroundColor: ColorsApp.WARNING,
   },
   containerTime: {
     //
    
-    paddingVertical: 4,
+    paddingBottom: 4,
     borderBottomLeftRadius: 40,
     borderBottomRightRadius: 40,
     alignItems: "center",
     paddingHorizontal: 16
   },
   containerLabel: {
-    backgroundColor: ColorsApp.TERTIARY,
+    backgroundColor: ColorsApp.WARNING,
     flexDirection: "row",
     justifyContent: "center",
     paddingTop: 8
